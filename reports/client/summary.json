@@ -1,0 +1,15 @@
+{
+  "raw_rows": 10800,
+  "exact_duplicates_removed": 504,
+  "invalid_rows_removed_after_dedup": 302,
+  "clean_rows": 9994,
+  "input_sha256": "75264adc0cf180c493a2c56ef97e4087b32ad48fe663d600ed4a9f9ca7c183e9",
+  "start": "2015-01-03",
+  "end": "2018-12-30",
+  "orders": 5009,
+  "customers": 793,
+  "revenue": 2297200.8603,
+  "profit": 286397.0217,
+  "margin": 0.12467217240315605,
+  "negative_subcategory_profit": -22387.1366
+}
