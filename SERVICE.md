@@ -1,60 +1,49 @@
 # Sales data cleanup and profitability report
 
-## Client-facing offer
+A scoped service for converting a sales CSV into a reproducible business report.
 
-**I will turn your sales CSV into a clear profitability report.**
+## Pilot scope
 
-Send one sales export and three business questions. I will check data quality,
-prepare a documented clean dataset, calculate revenue/profit metrics and explain
-which products or customer groups deserve a closer look.
+- One CSV with up to 50,000 rows, one currency, and one agreed date range.
+- Up to three business questions, such as monthly revenue, loss-making categories,
+  and the relationship between discounts and profit.
+- One revision within the agreed scope.
 
-**Pilot scope — proposed starting quote: USD 150 fixed**
+## Deliverables
 
-- One CSV, up to 50,000 rows, one currency and one agreed date range.
-- Up to three agreed questions, such as monthly revenue, loss-making categories
-  and discount/profit patterns.
-- Clean CSV, data-quality log, summary tables and a two-page report.
-- Reproducible Python script and one revision within the agreed scope.
-- Proposed delivery: three business days after receiving usable data and agreeing KPI definitions.
+- Clean CSV and a documented data-quality log.
+- Revenue and profitability summary tables.
+- A two-page report with findings, limitations, and recommended next steps.
+- A reproducible Python script.
 
-This is a suggested initial offer to test with clients, not a verified market rate
-or a commitment already made to a customer. Confirm capacity before promising a date.
+## Indicative pricing and delivery
 
-**Possible follow-on: USD 350 fixed** for the same dataset plus customer segmentation,
-five questions, and a recorded walkthrough. Recurring refreshes are quoted after the
-first delivery; do not promise maintenance for an unspecified number of sources.
+The initial pilot quote is USD 150 fixed. Scope, final price, and delivery date
+are agreed after reviewing a sample and confirming metric definitions. The
+proposed delivery window is three business days after that agreement, subject
+to availability.
 
-## Inputs to request before accepting
+An expanded package may include customer segmentation, five questions, and a
+recorded walkthrough, with an indicative quote of USD 350. Recurring refreshes
+are quoted separately after the first delivery. These are proposed service
+offers, not claims about market rates or completed paid engagements.
 
-1. A small anonymized sample and column definitions.
-2. What one row represents; unique order/line/customer IDs.
-3. Currency, date format, returns/refunds treatment, timezone if relevant.
-4. Definition of sales and profit, including which costs are included.
-5. Three decisions the report should help make.
+## Required inputs
 
-If profit/cost is missing, offer a revenue report explicitly; do not manufacture margins.
-Scope additions such as API integrations, live dashboards, forecasting or causal
-pricing recommendations require a separate estimate.
+1. An anonymized sample and column definitions.
+2. The meaning of one row and the order, line, and customer identifiers.
+3. Currency, date format, and the treatment of returns and refunds.
+4. Sales and profit definitions, including the costs already included.
+5. The three decisions the report should support.
 
-## Short proposal
+## Boundaries
 
-Hi, I can help turn your sales export into a reproducible report covering data quality,
-revenue trends and product profitability. My public retail demo starts with 10,800
-rows and documents every removal before reporting on 9,994 valid order lines.
+If cost or profit data is unavailable, the scope covers revenue analysis only.
+API integrations, live dashboards, forecasting, and causal pricing studies require
+a separate estimate. Observed discount/profit relationships do not establish causation.
 
-For a first milestone, I suggest agreeing three questions and the definitions of
-sales/profit using an anonymized sample. I would then deliver the cleaned data,
-summary tables, a short report and the Python script so you can rerun the analysis.
+## Portfolio example
 
-Could you share the column names and clarify whether returns and shipping costs are
-already included in the profit field?
-
-Portfolio: https://github.com/senagithubs/superstore-sales-analysis
-
-## Sena için 45 dakikalık hazırlık
-
-- Raporu açıp ciro ile kârı ve toplam marj ile yıllık marjı ayırarak anlat.
-- 806 silinen kaydın 504 tekrar + 302 geçersiz kayıt olduğunu göster.
-- “İndirim zarara neden oldu” yerine gözlenen ilişkiyi ve test önerisini anlat.
-- Tek siparişte birden fazla satır varsa neden müşteri frekansının satır sayısı olmadığını açıkla.
-- Sahte bir müşterinin üç sorusunu alıp kapsamın içine/dışına giren işleri belirle.
+The [retail analysis report](reports/client/report.md) documents a historical sample
+dataset: 10,800 source rows, 504 exact duplicates, 302 invalid rows, and 9,994 valid
+order lines. It is a reproducible demonstration, not a paying-client case study.
