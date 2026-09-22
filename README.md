@@ -12,11 +12,21 @@ Python 3.11+ from the repository root:
 python -m pip install -r requirements.txt
 python sales_analysis.py
 python -m pytest -q
+python portfolio_figures.py
 ```
 
 Read [the client report](reports/client/report.md), [the notebook](analysis.ipynb),
 or [the fixed-scope service offer](SERVICE.md). Summary CSVs and a source hash are
 written to `reports/client/`. The script does not modify the input file.
+
+## Portfolio case study
+
+Read the [two-page decision brief](reports/portfolio/Retail_Sales_Analysis.pdf).
+The current [revenue and margin](reports/portfolio/revenue_and_margin.png) and
+[loss-making categories](reports/portfolio/loss_making_categories.png) figures are
+reproduced by `portfolio_figures.py` from the client-report tables.
+
+![Retail analytics case study](reports/portfolio/Retail_Analysis_Cover.png)
 
 ## Questions answered
 
