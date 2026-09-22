@@ -1,45 +1,49 @@
-# Superstore Sales & Profitability Analysis
+# Retail sales and profitability analysis
 
-An end-to-end exploratory analysis of ~10K retail order lines that turns raw sales data into concrete pricing and customer-retention recommendations.
+A reproducible portfolio example: clean an order export, answer four business questions,
+and deliver an audit trail with a short client report. Data is the historical
+Superstore-style sample bundled in `data/superstore.csv`, not a client engagement.
 
-## What it does
+## Run
 
-- Runs a full data quality audit on ~10,800 raw order lines (4 years, 793 customers, 5,009 orders), then cleans duplicates and unparseable rows down to a reliable analysis set.
-- Breaks down revenue and profit trends over time to check whether growth is actually profitable.
-- Analyzes profit by category and sub-category to find which product lines quietly destroy margin.
-- Models the relationship between discount level and profit to find the point where discounting stops being worth it.
-- Segments customers with RFM (Recency, Frequency, Monetary) quintiles to identify the highest-value and highest-risk customer groups.
-
-## Key findings
-
-- Growth is real, profitable growth is not. Revenue shows strong seasonality and year-over-year growth, but overall profit margin stays flat at 12.5% - a revenue-first view hides this.
-- Three sub-categories quietly destroy profit. Tables, Bookcases and Supplies lose money overall despite meaningful revenue, having destroyed roughly $22K of profit between them - selling more of them makes results worse, not better.
-- There is a discount cliff at 20%. Average profit per order line stays healthy up to a 20% discount, then collapses, with lines discounted 30% or more running at a loss - a 20% discount ceiling (with manager approval required beyond it) would directly protect margin.
-- Value is concentrated in a small customer elite. RFM segmentation shows that Champions and Loyal customers drive most revenue, while the At Risk segment - customers who used to buy frequently and have gone quiet - is the highest-ROI win-back target.
-
-## Recommendations
-
-| Finding | Action |
-|---|---|
-| 12.5% flat margin under growing revenue | Report profit-first, not revenue-first |
-| Tables / Bookcases / Supplies lose money | Reprice, renegotiate, or de-emphasize in promotions |
-| Profit collapses beyond 20% discount | Enforce a 20% discount ceiling |
-| Value concentrated in RFM elite | Protect Champions; targeted win-back for At Risk |
-
-## Tech stack
-
-- Python
-- pandas
-- matplotlib
-- Jupyter
-
-## Quickstart
+Python 3.11+ from the repository root:
 
 ```bash
-pip install -r requirements.txt
-jupyter notebook analysis.ipynb
+python -m pip install -r requirements.txt
+python sales_analysis.py
+python -m pytest -q
+python portfolio_figures.py
 ```
 
-The notebook can also be read directly on GitHub without running it - every table and chart in it is already baked in from a previous run.
+Read [the client report](reports/client/report.md), [the notebook](analysis.ipynb),
+or [the fixed-scope service offer](SERVICE.md). Summary CSVs and a source hash are
+written to `reports/client/`. The script does not modify the input file.
 
-Data: public Superstore retail dataset (mirrored in data/superstore.csv).
+## Portfolio case study
+
+Read the [two-page decision brief](reports/portfolio/Retail_Sales_Analysis.pdf).
+The current [revenue and margin](reports/portfolio/revenue_and_margin.png) and
+[loss-making categories](reports/portfolio/loss_making_categories.png) figures are
+reproduced by `portfolio_figures.py` from the client-report tables.
+
+![Retail analytics case study](reports/portfolio/Retail_Analysis_Cover.png)
+
+## Questions answered
+
+1. How do annual revenue, profit and weighted margin change?
+2. Which subcategories report aggregate losses?
+3. How does average line profit differ across discount bands?
+4. Which customer groups merit a retention experiment?
+
+The sample contains 10,800 raw rows. Removing 504 exact duplicates and then 302 invalid
+rows leaves 9,994 order lines, 5,009 orders and 793 customers. Revenue totals
+$2,297,200.86 and profit totals $286,397.02. The 12.47% overall margin is not a trend.
+Tables, Bookcases and Supplies together report a $22,387.14 historical loss.
+
+Discount/profit relationships are observational. This analysis does not estimate the
+causal effect of a discount ceiling or claim a guaranteed campaign ROI. RFM is a
+transparent heuristic; segment names use recency/frequency, while monetary value is
+reported separately. See the report for interval definitions and cleaning decisions.
+
+The original exploratory figures in `reports/figures/` are retained as historical
+outputs. The client report and the revised notebook contain the current interpretation.
